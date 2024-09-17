@@ -59,7 +59,7 @@ class KafkaProducerTask implements Runnable {
                 if (topic.equals("eventE"))
                     message = "start"; // "close";
                 else
-                    message = (topic.equals("statusA3") || topic.equals("statusB3")) ?
+                    message = (topic.equals("statusA") || topic.equals("statusB")) ?
                         String.valueOf(RANDOM.nextInt(2)) : String.valueOf(RANDOM.nextFloat() * 100);
                 ProducerRecord<String, String> record = new ProducerRecord<>(topic, message);
                 producer.send(record, (metadata, exception) -> {
